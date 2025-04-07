@@ -1,5 +1,7 @@
 <script setup lang="ts">
-function goBack() {}
+	import ProfileMenu from '~/components/ProfileMenu.vue';
+
+	const { loggedIn } = useUserSession();
 </script>
 
 <template>
@@ -16,15 +18,29 @@ function goBack() {}
 			color="accent"
 			no-caps
 			unelevated
+			href="/login"
 		/>
 		<q-btn
 			label="Регистрация"
+			v-if="!loggedIn"
 			icon="person"
 			color="accent"
 			no-caps
 			unelevated
 			outline
 		/>
+		<q-btn
+			v-if="loggedIn"
+			icon="person"
+			color="accent"
+			no-caps
+			unelevated
+			outline
+			dense
+			round
+		>
+			<ProfileMenu />
+		</q-btn>
       </q-toolbar>
     </q-header>
 </template>
