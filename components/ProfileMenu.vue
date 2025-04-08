@@ -34,11 +34,11 @@
 			<q-item>
 				<q-btn
 					color="primary"
-					label="Выйти"
+					icon="logout"
+					:label="$t('signOut')"
 					class="full-width"
 					v-close-popup
 					@click="handleLogout"
-					unelevated
 				/>
 			</q-item>
 		</q-list>

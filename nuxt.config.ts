@@ -11,6 +11,18 @@ export default defineNuxtConfig({
     ]
  },
 	quasar: {
+		components: {
+			defaults: {
+				QBtn: {
+					unelevated: true,
+					color: 'primary',
+					noCaps: true,
+				},
+				QBtnGroup: {
+					unelevated: true,
+				}
+			}
+		},
 		config: {
 			brand: {
 				primary: '#008ccf',
