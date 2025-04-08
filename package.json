@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/i18n": "^9.5.2",
     "@quasar/extras": "^1.16.17",
     "nuxt": "^3.16.2",
     "nuxt-auth-utils": "^0.5.18",

@@ -9,22 +9,24 @@
       <q-toolbar class="q-pa-sm q-gutter-sm">
         <!-- <q-img :src="LogoSVG" fit="contain" height="36px" width="100px" /> -->
 		<q-toolbar-title class="text-primary">
-			Selmi
+			<NuxtLink to="/">
+				<img src="~/assets/logo.svg" style="height: 24px;"/>
+			</NuxtLink>
 		</q-toolbar-title>
         <q-space></q-space>
 		<q-btn
-			label="Добавить объявление"
+			:label="$t('addAd')"
 			icon="add"
-			color="accent"
+			color="secondary"
 			no-caps
 			unelevated
-			href="/login"
+			to="/signin"
 		/>
 		<q-btn
-			label="Регистрация"
+			:label="$t('signUp')"
 			v-if="!loggedIn"
 			icon="person"
-			color="accent"
+			color="secondary"
 			no-caps
 			unelevated
 			outline
@@ -32,7 +34,7 @@
 		<q-btn
 			v-if="loggedIn"
 			icon="person"
-			color="accent"
+			color="secondary"
 			no-caps
 			unelevated
 			outline
