@@ -13,21 +13,10 @@
 		<NuxtLink :to="$localePath('/')" style="display: flex; width: 100px;">
 			<img src="~/assets/logo.svg" />
 		</NuxtLink>
-		<q-btn-group outline>
-			<q-btn
-				v-for="locale in locales"
-				flat
-				:label="locale.name"
-				@click="setLocale(locale.code)"
-			/>
-		</q-btn-group>
         <q-space></q-space>
 		<q-btn
 			:label="$t('addAd')"
 			icon="add"
-			color="secondary"
-			no-caps
-			unelevated
 			:to="$localePath('/ads/new')"
 		/>
 		<q-btn
@@ -35,20 +24,31 @@
 			v-if="!loggedIn"
 			:to="$localePath('/user/signup')"
 			icon="person"
-			color="secondary"
 			outline
 		/>
 		<q-btn
 			v-if="loggedIn"
 			icon="person"
-			color="secondary"
-			outline
-			dense
-			round
+			flat
 		>
 			<ProfileMenu />
 		</q-btn>
-
+		<q-btn
+			icon="translate"
+			flat
+		>
+			<q-menu>
+				<q-list>
+					<q-item
+						v-for="locale in locales"
+						@click="setLocale(locale.code)"
+						clickable
+					>
+						<q-item-section>{{ locale.name }}</q-item-section>
+					</q-item>
+				</q-list>
+			</q-menu>
+		</q-btn>
       </q-toolbar>
     </q-header>
 </template>

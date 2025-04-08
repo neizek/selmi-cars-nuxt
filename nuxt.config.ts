@@ -7,7 +7,8 @@ export default defineNuxtConfig({
 	defaultLocale: 'lv',
     locales: [
       { code: 'lv', name: 'Latviešu', file: 'lv.json' },
-      { code: 'ru', name: 'Русский', file: 'ru.json' }
+      { code: 'ru', name: 'Русский', file: 'ru.json' },
+      { code: 'en', name: 'English', file: 'en.json' }
     ]
  },
 	quasar: {

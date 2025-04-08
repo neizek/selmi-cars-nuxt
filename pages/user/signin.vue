@@ -9,9 +9,11 @@
 	const { fetch: refreshSession } = useUserSession();
 
 	const showPassword = ref(false);
-	const isLoading = ref(false)
+	const isLoading = ref(false);
+	const signInError = ref('')
 
 	function handleLogin() {
+		signInError.value = '';
 		isLoading.value = true;
 		fetch('/api/auth/login', {
 			method: 'POST',
@@ -24,6 +26,9 @@
 			if (response.status === 200) {
 				await refreshSession()
 				await navigateTo('/')
+			}
+			if (response.status === 401) {
+				signInError.value = 'Неверные данные'
 			}
 		})
 		.finally(() => {
@@ -42,6 +47,12 @@
 				<div class="text-center text-caption text-grey-7">{{ $t('signInPage.useThisFormToSignIn') }}</div>
 			</q-card-section>
 			<q-card-section class="col q-gutter-y-sm">
+				<q-banner
+					v-if="signInError !== ''"
+					class="bg-red-1 text-red rounded-borders"
+				>
+					{{ signInError }}
+				</q-banner>
 				<q-input
 					:label="`${$t('email')} ${$t('or')} ${$t('phoneNumber').toLowerCase()}`"
 					v-model="credentials.email"

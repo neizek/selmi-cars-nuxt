@@ -1,7 +1,11 @@
 <script setup lang="ts">
-	const form = ref({
-		
-	})
+	const user = ref({
+		email: '',
+		firstName: '',
+		lastName: '',
+		password: '',
+		repeatPassword: ''
+	});
 
 	function handleSignUp() {
 
