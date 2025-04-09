@@ -12,15 +12,15 @@
 </script>
 
 <template>
-	<q-menu style="width: 250px;">
+	<q-menu style="width: 250px;" v-if="user">
 		<q-list>
 			<q-item class="row q-gutter-x-md">
 				<q-avatar>
 					<q-icon name="account_circle" size="48px" class="text-grey-7" />
 				</q-avatar>
 				<div class="column">
-					<div class="text-subtitle1">{{ user?.name }}</div>
-					<div class="text-caption text-grey-7">{{ user?.email }}</div>
+					<div class="text-subtitle1">{{ user.firstName }} {{ user.lastName }}</div>
+					<div class="text-caption text-grey-7">{{ user.email }}</div>
 				</div>
 			</q-item>
 			<q-separator />

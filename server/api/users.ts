@@ -1,15 +1,9 @@
 
+import type { User } from '~/types/users';
 import { query } from '~/utils/db';
 
-export interface UserPayLoad {
-	id: number;
-	name: string;
-	email: string;
-	password: string;
-}
-
 function getAllUsers() {
-	return query('SELECT * FROM users') as Promise<UserPayLoad[]>;
+	return query('SELECT * FROM users') as Promise<User[]>;
 }
 
 export default defineEventHandler(async (event) => {
