@@ -1,20 +1,26 @@
-import { query } from "~/utils/db"
 
-function getUserByEmail(email: string) {
-	return query(`SELECT * FROM users WHERE email = '${email}'`)
-}
+import prisma from "~/utils/prisma";
 
 export default defineEventHandler(async (event) => {
 	const body = await readBody(event)
-	const users = await getUserByEmail(body.email);
-	const user = users[0];
+
+	const user = await prisma.user.findFirst({
+		where: {email: body.email}
+	});
+
+	if (user === null) {
+		throw createError({
+			status: 404,
+			message: 'User does not exist'  
+		})
+	}
 
 	if (user !== undefined && user.password === body.password) {
 	  	await setUserSession(event, {
 			user: {
 				id: user.id,
-		 		firstName: user.firstName,
-				lastName: user.lastName,
+		 		firstName: user.firstname,
+				lastName: user.lastname,
 				email: user.email
 			}
 	  	})

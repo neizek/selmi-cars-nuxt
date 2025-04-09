@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 	const credentials = ref({
 		email: '',
 		password: '',
@@ -29,6 +28,9 @@
 			}
 			if (response.status === 401) {
 				signInError.value = 'Неверные данные'
+			}
+			if (response.status === 404) {
+				signInError.value = 'Такого пользователя нету'
 			}
 		})
 		.finally(() => {

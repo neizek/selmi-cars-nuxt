@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
  compatibilityDate: '2024-11-01',
  devtools: { enabled: true },
- modules: ['nuxt-quasar-ui', 'nuxt-auth-utils', '@nuxtjs/i18n'],
+ modules: [
+	'nuxt-quasar-ui',
+	'nuxt-auth-utils',
+	'@nuxtjs/i18n',
+	'@prisma/nuxt'
+],
  i18n: {
 	defaultLocale: 'lv',
     locales: [
