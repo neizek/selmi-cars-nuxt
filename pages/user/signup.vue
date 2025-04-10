@@ -11,18 +11,23 @@
 
 	const isLoading: Ref<boolean> = ref(false);
 
+	async function requestSignUp() {
+		await useFetch('/api/user', {
+			method: 'POST',
+			body: user.value,
+			onResponseError({ response }) {
+				console.log(response)
+			},
+			onResponse({ response }) {
+				console.log(response)
+			}
+		});
+	}
+
 	function handleSignUp() {
 		isLoading.value = true;
-		fetch('/api/user', {
-			method: 'POST',
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(user.value)
-		})
-		.then(response => {
-			console.log('zbs')
-		})
+
+		requestSignUp()
 		.finally(() => {
 			isLoading.value = false;
 		});
@@ -40,7 +45,7 @@
 				<q-input v-model="user.repeatPassword" :label="$t('repeatPassword')" />
 			</q-card-section>
 			<q-card-actions>
-				<q-btn type="submit" :label="$t('signUp')" />
+				<q-btn type="submit" :label="$t('signUp')" :loading="isLoading" />
 			</q-card-actions>
 		</q-form>
 	</q-card>

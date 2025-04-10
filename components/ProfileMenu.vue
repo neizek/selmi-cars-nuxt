@@ -6,8 +6,8 @@
 	}
 
 	const profileMenuItems = [
-		{icon: 'description', label: 'Мои объявления'},
-		{icon: 'settings', label: 'Редактировать профиль'}
+		{icon: 'description', label: 'Мои объявления', link: user.value ? `/user/${user.value.id}/ads` : ''},
+		{icon: 'settings', label: 'Редактировать профиль', link: user.value ? `/user/${user.value.id}` : ''}
 	]
 </script>
 
@@ -19,12 +19,17 @@
 					<q-icon name="account_circle" size="48px" class="text-grey-7" />
 				</q-avatar>
 				<div class="column">
-					<div class="text-subtitle1">{{ user.firstName }} {{ user.lastName }}</div>
+					<div class="text-subtitle1">{{ user.firstname }} {{ user.lastname }}</div>
 					<div class="text-caption text-grey-7">{{ user.email }}</div>
 				</div>
 			</q-item>
 			<q-separator />
-			<q-item v-for="menuItem in profileMenuItems" clickable v-ripple>
+			<q-item
+				v-for="menuItem in profileMenuItems"
+				@click="navigateTo($localePath(menuItem.link))"
+				clickable
+				v-ripple
+			>
 				<q-item-section avatar>
 					<q-icon :name="menuItem.icon" color="primary" />
 				</q-item-section>

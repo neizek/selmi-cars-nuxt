@@ -11,29 +11,34 @@
 	const isLoading = ref(false);
 	const signInError = ref('')
 
-	function handleLogin() {
-		signInError.value = '';
-		isLoading.value = true;
-		fetch('/api/auth/signin', {
+	async function requestSignIn() {
+		await useFetch('/api/auth/signin', {
 			method: 'POST',
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(credentials.value)
-		})
-		.then(async response => {
-			if (response.status === 200) {
-				await refreshSession()
-				await navigateTo('/')
+			body: credentials.value,
+			onResponseError({ response }) {
+				if (response.status === 401) {
+					signInError.value = 'Неверные данные';
+				} else if (response.status === 404) {
+					signInError.value = 'Такого пользователя нету';
+				}
+			},
+			onResponse({ response }) {
+				if (response.status === 200) {
+					refreshSession();
+					navigateTo('/');
+				}
 			}
-			if (response.status === 401) {
-				signInError.value = 'Неверные данные'
-			}
-			if (response.status === 404) {
-				signInError.value = 'Такого пользователя нету'
-			}
-		})
-		.finally(() => {
+		});
+	}
+
+	async function handleLogin() {
+		signInError.value = '';
+		isLoading.value = true;
+		
+		requestSignIn().finally(() => {
 			isLoading.value = false;
 		})
 	}

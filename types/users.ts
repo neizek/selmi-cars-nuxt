@@ -1,4 +1,4 @@
-export interface User {
+export interface SingleUser {
 	id: number;
 	firstName: string;
 	lastName: string;
@@ -6,8 +6,8 @@ export interface User {
 	password: string;
 }
 
-export type UserSignInPayload = Pick<User, 'email' | 'password'>;
+export type UserSignInPayload = Pick<SingleUser, 'email' | 'password'>;
 
-export type UserSignUpPayload = Omit<User, 'id'> & {
+export type UserSignUpPayload = Omit<SingleUser, 'id'> & {
 	repeatPassword: string;
 }

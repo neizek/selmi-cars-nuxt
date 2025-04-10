@@ -1,5 +1,10 @@
-// declare module '#auth-utils' {
-// 	interface User extends User {}
-// }
+declare module '#auth-utils' {
+	interface User {
+		id: number;
+		firstname: string;
+		lastname: string;
+		email: string
+	}
+}
   
-// export {}
+export {}

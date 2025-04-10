@@ -1,17 +1,41 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
     provider = "prisma-client-js"
     output   = "../lib/generated/prisma"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+    provider     = "postgresql"
+    url          = env("DATABASE_URL")
+    relationMode = "prisma"
+}
+
+model CarMake {
+    id              Int        @id @default(autoincrement())
+    name            String     @unique
+    countryOfOrigin String?
+    logoUrl         String?
+    createdAt       DateTime   @default(now())
+    updatedAt       DateTime   @updatedAt
+    models          CarModel[]
+
+    @@map("car_makes")
+}
+
+model CarModel {
+    id           Int               @id @default(autoincrement())
+    modelName    String
+    year         Int?
+    engineType   String?
+    bodyStyle    BodyStyle?
+    fuelType     FuelType?
+    transmission TransmissionType?
+    isActive     Boolean           @default(true)
+    makeId       Int
+    make         CarMake           @relation(fields: [makeId], references: [id])
+
+    @@unique([makeId, modelName, year])
+    @@index([makeId])
+    @@map("car_models")
 }
 
 model User {
@@ -20,4 +44,51 @@ model User {
     firstname String
     lastname  String
     password  String
+    role      Role   @default(USER)
+
+    @@map("users")
+}
+
+model Entity {
+    id                 Int    @id @default(autoincrement())
+    registrationnumber String
+
+    @@map("enities")
+}
+
+enum Role {
+    ADMIN
+    MODERATOR
+    USER
+}
+
+enum BodyStyle {
+    SEDAN
+    SUV
+    HATCHBACK
+    COUPE
+    CONVERTIBLE
+    WAGON
+    VAN
+    TRUCK
+    CROSSOVER
+    MINIVAN
+}
+
+enum FuelType {
+    GASOLINE
+    DIESEL
+    ELECTRIC
+    HYBRID
+    PLUGIN_HYBRID
+    HYDROGEN
+    NATURAL_GAS
+}
+
+enum TransmissionType {
+    MANUAL
+    AUTOMATIC
+    CVT
+    SEMI_AUTOMATIC
+    DUAL_CLUTCH
 }
