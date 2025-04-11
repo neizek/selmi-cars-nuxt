@@ -23,32 +23,28 @@ model CarMake {
 }
 
 model CarModel {
-    id           Int               @id @default(autoincrement())
-    modelName    String
-    year         Int?
-    engineType   String?
-    bodyStyle    BodyStyle?
-    fuelType     FuelType?
-    transmission TransmissionType?
-    isActive     Boolean           @default(true)
-    makeId       Int
-    make         CarMake           @relation(fields: [makeId], references: [id])
-    cars         Cars[]
+    id     Int     @id @default(autoincrement())
+    name   String
+    makeId Int
+    make   CarMake @relation(fields: [makeId], references: [id])
+    cars   Cars[]
 
-    @@unique([makeId, modelName, year])
+    @@unique([makeId, name])
     @@index([makeId])
     @@map("car_models")
 }
 
 model Cars {
-    id      Int      @id @default(autoincrement())
-    makeId  Int
-    make    CarMake  @relation(fields: [makeId], references: [id])
-    modelId Int
-    model   CarModel @relation(fields: [modelId], references: [id])
-    price   Int
-    year    Int
-    mileage Int
+    id        Int      @id @default(autoincrement())
+    makeId    Int
+    make      CarMake  @relation(fields: [makeId], references: [id])
+    modelId   Int
+    model     CarModel @relation(fields: [modelId], references: [id])
+    price     Int
+    year      Int
+    mileage   Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
     @@index([makeId])
     @@index([modelId])
@@ -56,12 +52,14 @@ model Cars {
 }
 
 model User {
-    id        Int    @id @default(autoincrement())
-    email     String @unique
+    id        Int      @id @default(autoincrement())
+    email     String   @unique
     firstname String
     lastname  String
     password  String
-    role      Role   @default(USER)
+    role      Role     @default(USER)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
     @@map("users")
 }

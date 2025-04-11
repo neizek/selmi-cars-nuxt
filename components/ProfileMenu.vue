@@ -1,8 +1,9 @@
 <script setup lang="ts">
-	const { clear, user } = useUserSession();
+	const { clear, user, fetch: refreshSession } = useUserSession();
 
 	async function handleLogout() {
 		await clear();
+		await refreshSession();
 	}
 
 	const profileMenuItems = [

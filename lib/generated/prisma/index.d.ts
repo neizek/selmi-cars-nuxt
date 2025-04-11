@@ -2532,49 +2532,29 @@ export namespace Prisma {
 
   export type CarModelAvgAggregateOutputType = {
     id: number | null
-    year: number | null
     makeId: number | null
   }
 
   export type CarModelSumAggregateOutputType = {
     id: number | null
-    year: number | null
     makeId: number | null
   }
 
   export type CarModelMinAggregateOutputType = {
     id: number | null
-    modelName: string | null
-    year: number | null
-    engineType: string | null
-    bodyStyle: $Enums.BodyStyle | null
-    fuelType: $Enums.FuelType | null
-    transmission: $Enums.TransmissionType | null
-    isActive: boolean | null
+    name: string | null
     makeId: number | null
   }
 
   export type CarModelMaxAggregateOutputType = {
     id: number | null
-    modelName: string | null
-    year: number | null
-    engineType: string | null
-    bodyStyle: $Enums.BodyStyle | null
-    fuelType: $Enums.FuelType | null
-    transmission: $Enums.TransmissionType | null
-    isActive: boolean | null
+    name: string | null
     makeId: number | null
   }
 
   export type CarModelCountAggregateOutputType = {
     id: number
-    modelName: number
-    year: number
-    engineType: number
-    bodyStyle: number
-    fuelType: number
-    transmission: number
-    isActive: number
+    name: number
     makeId: number
     _all: number
   }
@@ -2582,49 +2562,29 @@ export namespace Prisma {
 
   export type CarModelAvgAggregateInputType = {
     id?: true
-    year?: true
     makeId?: true
   }
 
   export type CarModelSumAggregateInputType = {
     id?: true
-    year?: true
     makeId?: true
   }
 
   export type CarModelMinAggregateInputType = {
     id?: true
-    modelName?: true
-    year?: true
-    engineType?: true
-    bodyStyle?: true
-    fuelType?: true
-    transmission?: true
-    isActive?: true
+    name?: true
     makeId?: true
   }
 
   export type CarModelMaxAggregateInputType = {
     id?: true
-    modelName?: true
-    year?: true
-    engineType?: true
-    bodyStyle?: true
-    fuelType?: true
-    transmission?: true
-    isActive?: true
+    name?: true
     makeId?: true
   }
 
   export type CarModelCountAggregateInputType = {
     id?: true
-    modelName?: true
-    year?: true
-    engineType?: true
-    bodyStyle?: true
-    fuelType?: true
-    transmission?: true
-    isActive?: true
+    name?: true
     makeId?: true
     _all?: true
   }
@@ -2717,13 +2677,7 @@ export namespace Prisma {
 
   export type CarModelGroupByOutputType = {
     id: number
-    modelName: string
-    year: number | null
-    engineType: string | null
-    bodyStyle: $Enums.BodyStyle | null
-    fuelType: $Enums.FuelType | null
-    transmission: $Enums.TransmissionType | null
-    isActive: boolean
+    name: string
     makeId: number
     _count: CarModelCountAggregateOutputType | null
     _avg: CarModelAvgAggregateOutputType | null
@@ -2748,13 +2702,7 @@ export namespace Prisma {
 
   export type CarModelSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    modelName?: boolean
-    year?: boolean
-    engineType?: boolean
-    bodyStyle?: boolean
-    fuelType?: boolean
-    transmission?: boolean
-    isActive?: boolean
+    name?: boolean
     makeId?: boolean
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
     cars?: boolean | CarModel$carsArgs<ExtArgs>
@@ -2763,43 +2711,25 @@ export namespace Prisma {
 
   export type CarModelSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    modelName?: boolean
-    year?: boolean
-    engineType?: boolean
-    bodyStyle?: boolean
-    fuelType?: boolean
-    transmission?: boolean
-    isActive?: boolean
+    name?: boolean
     makeId?: boolean
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["carModel"]>
 
   export type CarModelSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    modelName?: boolean
-    year?: boolean
-    engineType?: boolean
-    bodyStyle?: boolean
-    fuelType?: boolean
-    transmission?: boolean
-    isActive?: boolean
+    name?: boolean
     makeId?: boolean
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["carModel"]>
 
   export type CarModelSelectScalar = {
     id?: boolean
-    modelName?: boolean
-    year?: boolean
-    engineType?: boolean
-    bodyStyle?: boolean
-    fuelType?: boolean
-    transmission?: boolean
-    isActive?: boolean
+    name?: boolean
     makeId?: boolean
   }
 
-  export type CarModelOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "modelName" | "year" | "engineType" | "bodyStyle" | "fuelType" | "transmission" | "isActive" | "makeId", ExtArgs["result"]["carModel"]>
+  export type CarModelOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "makeId", ExtArgs["result"]["carModel"]>
   export type CarModelInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
     cars?: boolean | CarModel$carsArgs<ExtArgs>
@@ -2820,13 +2750,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      modelName: string
-      year: number | null
-      engineType: string | null
-      bodyStyle: $Enums.BodyStyle | null
-      fuelType: $Enums.FuelType | null
-      transmission: $Enums.TransmissionType | null
-      isActive: boolean
+      name: string
       makeId: number
     }, ExtArgs["result"]["carModel"]>
     composites: {}
@@ -3254,13 +3178,7 @@ export namespace Prisma {
    */
   interface CarModelFieldRefs {
     readonly id: FieldRef<"CarModel", 'Int'>
-    readonly modelName: FieldRef<"CarModel", 'String'>
-    readonly year: FieldRef<"CarModel", 'Int'>
-    readonly engineType: FieldRef<"CarModel", 'String'>
-    readonly bodyStyle: FieldRef<"CarModel", 'BodyStyle'>
-    readonly fuelType: FieldRef<"CarModel", 'FuelType'>
-    readonly transmission: FieldRef<"CarModel", 'TransmissionType'>
-    readonly isActive: FieldRef<"CarModel", 'Boolean'>
+    readonly name: FieldRef<"CarModel", 'String'>
     readonly makeId: FieldRef<"CarModel", 'Int'>
   }
     
@@ -3737,6 +3655,8 @@ export namespace Prisma {
     price: number | null
     year: number | null
     mileage: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CarsMaxAggregateOutputType = {
@@ -3746,6 +3666,8 @@ export namespace Prisma {
     price: number | null
     year: number | null
     mileage: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CarsCountAggregateOutputType = {
@@ -3755,6 +3677,8 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -3784,6 +3708,8 @@ export namespace Prisma {
     price?: true
     year?: true
     mileage?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CarsMaxAggregateInputType = {
@@ -3793,6 +3719,8 @@ export namespace Prisma {
     price?: true
     year?: true
     mileage?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CarsCountAggregateInputType = {
@@ -3802,6 +3730,8 @@ export namespace Prisma {
     price?: true
     year?: true
     mileage?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -3898,6 +3828,8 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt: Date
+    updatedAt: Date
     _count: CarsCountAggregateOutputType | null
     _avg: CarsAvgAggregateOutputType | null
     _sum: CarsSumAggregateOutputType | null
@@ -3926,6 +3858,8 @@ export namespace Prisma {
     price?: boolean
     year?: boolean
     mileage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
     model?: boolean | CarModelDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cars"]>
@@ -3937,6 +3871,8 @@ export namespace Prisma {
     price?: boolean
     year?: boolean
     mileage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
     model?: boolean | CarModelDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cars"]>
@@ -3948,6 +3884,8 @@ export namespace Prisma {
     price?: boolean
     year?: boolean
     mileage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
     model?: boolean | CarModelDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cars"]>
@@ -3959,9 +3897,11 @@ export namespace Prisma {
     price?: boolean
     year?: boolean
     mileage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type CarsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "makeId" | "modelId" | "price" | "year" | "mileage", ExtArgs["result"]["cars"]>
+  export type CarsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "makeId" | "modelId" | "price" | "year" | "mileage" | "createdAt" | "updatedAt", ExtArgs["result"]["cars"]>
   export type CarsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     make?: boolean | CarMakeDefaultArgs<ExtArgs>
     model?: boolean | CarModelDefaultArgs<ExtArgs>
@@ -3988,6 +3928,8 @@ export namespace Prisma {
       price: number
       year: number
       mileage: number
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["cars"]>
     composites: {}
   }
@@ -4419,6 +4361,8 @@ export namespace Prisma {
     readonly price: FieldRef<"Cars", 'Int'>
     readonly year: FieldRef<"Cars", 'Int'>
     readonly mileage: FieldRef<"Cars", 'Int'>
+    readonly createdAt: FieldRef<"Cars", 'DateTime'>
+    readonly updatedAt: FieldRef<"Cars", 'DateTime'>
   }
     
 
@@ -4860,6 +4804,8 @@ export namespace Prisma {
     lastname: string | null
     password: string | null
     role: $Enums.Role | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -4869,6 +4815,8 @@ export namespace Prisma {
     lastname: string | null
     password: string | null
     role: $Enums.Role | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -4878,6 +4826,8 @@ export namespace Prisma {
     lastname: number
     password: number
     role: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -4897,6 +4847,8 @@ export namespace Prisma {
     lastname?: true
     password?: true
     role?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -4906,6 +4858,8 @@ export namespace Prisma {
     lastname?: true
     password?: true
     role?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -4915,6 +4869,8 @@ export namespace Prisma {
     lastname?: true
     password?: true
     role?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -5011,6 +4967,8 @@ export namespace Prisma {
     lastname: string
     password: string
     role: $Enums.Role
+    createdAt: Date
+    updatedAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -5039,6 +4997,8 @@ export namespace Prisma {
     lastname?: boolean
     password?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5048,6 +5008,8 @@ export namespace Prisma {
     lastname?: boolean
     password?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5057,6 +5019,8 @@ export namespace Prisma {
     lastname?: boolean
     password?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -5066,9 +5030,11 @@ export namespace Prisma {
     lastname?: boolean
     password?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "firstname" | "lastname" | "password" | "role", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "firstname" | "lastname" | "password" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -5080,6 +5046,8 @@ export namespace Prisma {
       lastname: string
       password: string
       role: $Enums.Role
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -5509,6 +5477,8 @@ export namespace Prisma {
     readonly lastname: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -6893,13 +6863,7 @@ export namespace Prisma {
 
   export const CarModelScalarFieldEnum: {
     id: 'id',
-    modelName: 'modelName',
-    year: 'year',
-    engineType: 'engineType',
-    bodyStyle: 'bodyStyle',
-    fuelType: 'fuelType',
-    transmission: 'transmission',
-    isActive: 'isActive',
+    name: 'name',
     makeId: 'makeId'
   };
 
@@ -6912,7 +6876,9 @@ export namespace Prisma {
     modelId: 'modelId',
     price: 'price',
     year: 'year',
-    mileage: 'mileage'
+    mileage: 'mileage',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type CarsScalarFieldEnum = (typeof CarsScalarFieldEnum)[keyof typeof CarsScalarFieldEnum]
@@ -6924,7 +6890,9 @@ export namespace Prisma {
     firstname: 'firstname',
     lastname: 'lastname',
     password: 'password',
-    role: 'role'
+    role: 'role',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -7006,55 +6974,6 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'BodyStyle'
-   */
-  export type EnumBodyStyleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BodyStyle'>
-    
-
-
-  /**
-   * Reference to a field of type 'BodyStyle[]'
-   */
-  export type ListEnumBodyStyleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BodyStyle[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'FuelType'
-   */
-  export type EnumFuelTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FuelType'>
-    
-
-
-  /**
-   * Reference to a field of type 'FuelType[]'
-   */
-  export type ListEnumFuelTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FuelType[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'TransmissionType'
-   */
-  export type EnumTransmissionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TransmissionType'>
-    
-
-
-  /**
-   * Reference to a field of type 'TransmissionType[]'
-   */
-  export type ListEnumTransmissionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TransmissionType[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -7159,13 +7078,7 @@ export namespace Prisma {
     OR?: CarModelWhereInput[]
     NOT?: CarModelWhereInput | CarModelWhereInput[]
     id?: IntFilter<"CarModel"> | number
-    modelName?: StringFilter<"CarModel"> | string
-    year?: IntNullableFilter<"CarModel"> | number | null
-    engineType?: StringNullableFilter<"CarModel"> | string | null
-    bodyStyle?: EnumBodyStyleNullableFilter<"CarModel"> | $Enums.BodyStyle | null
-    fuelType?: EnumFuelTypeNullableFilter<"CarModel"> | $Enums.FuelType | null
-    transmission?: EnumTransmissionTypeNullableFilter<"CarModel"> | $Enums.TransmissionType | null
-    isActive?: BoolFilter<"CarModel"> | boolean
+    name?: StringFilter<"CarModel"> | string
     makeId?: IntFilter<"CarModel"> | number
     make?: XOR<CarMakeScalarRelationFilter, CarMakeWhereInput>
     cars?: CarsListRelationFilter
@@ -7173,13 +7086,7 @@ export namespace Prisma {
 
   export type CarModelOrderByWithRelationInput = {
     id?: SortOrder
-    modelName?: SortOrder
-    year?: SortOrderInput | SortOrder
-    engineType?: SortOrderInput | SortOrder
-    bodyStyle?: SortOrderInput | SortOrder
-    fuelType?: SortOrderInput | SortOrder
-    transmission?: SortOrderInput | SortOrder
-    isActive?: SortOrder
+    name?: SortOrder
     makeId?: SortOrder
     make?: CarMakeOrderByWithRelationInput
     cars?: CarsOrderByRelationAggregateInput
@@ -7187,31 +7094,19 @@ export namespace Prisma {
 
   export type CarModelWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    makeId_modelName_year?: CarModelMakeIdModelNameYearCompoundUniqueInput
+    makeId_name?: CarModelMakeIdNameCompoundUniqueInput
     AND?: CarModelWhereInput | CarModelWhereInput[]
     OR?: CarModelWhereInput[]
     NOT?: CarModelWhereInput | CarModelWhereInput[]
-    modelName?: StringFilter<"CarModel"> | string
-    year?: IntNullableFilter<"CarModel"> | number | null
-    engineType?: StringNullableFilter<"CarModel"> | string | null
-    bodyStyle?: EnumBodyStyleNullableFilter<"CarModel"> | $Enums.BodyStyle | null
-    fuelType?: EnumFuelTypeNullableFilter<"CarModel"> | $Enums.FuelType | null
-    transmission?: EnumTransmissionTypeNullableFilter<"CarModel"> | $Enums.TransmissionType | null
-    isActive?: BoolFilter<"CarModel"> | boolean
+    name?: StringFilter<"CarModel"> | string
     makeId?: IntFilter<"CarModel"> | number
     make?: XOR<CarMakeScalarRelationFilter, CarMakeWhereInput>
     cars?: CarsListRelationFilter
-  }, "id" | "makeId_modelName_year">
+  }, "id" | "makeId_name">
 
   export type CarModelOrderByWithAggregationInput = {
     id?: SortOrder
-    modelName?: SortOrder
-    year?: SortOrderInput | SortOrder
-    engineType?: SortOrderInput | SortOrder
-    bodyStyle?: SortOrderInput | SortOrder
-    fuelType?: SortOrderInput | SortOrder
-    transmission?: SortOrderInput | SortOrder
-    isActive?: SortOrder
+    name?: SortOrder
     makeId?: SortOrder
     _count?: CarModelCountOrderByAggregateInput
     _avg?: CarModelAvgOrderByAggregateInput
@@ -7225,13 +7120,7 @@ export namespace Prisma {
     OR?: CarModelScalarWhereWithAggregatesInput[]
     NOT?: CarModelScalarWhereWithAggregatesInput | CarModelScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"CarModel"> | number
-    modelName?: StringWithAggregatesFilter<"CarModel"> | string
-    year?: IntNullableWithAggregatesFilter<"CarModel"> | number | null
-    engineType?: StringNullableWithAggregatesFilter<"CarModel"> | string | null
-    bodyStyle?: EnumBodyStyleNullableWithAggregatesFilter<"CarModel"> | $Enums.BodyStyle | null
-    fuelType?: EnumFuelTypeNullableWithAggregatesFilter<"CarModel"> | $Enums.FuelType | null
-    transmission?: EnumTransmissionTypeNullableWithAggregatesFilter<"CarModel"> | $Enums.TransmissionType | null
-    isActive?: BoolWithAggregatesFilter<"CarModel"> | boolean
+    name?: StringWithAggregatesFilter<"CarModel"> | string
     makeId?: IntWithAggregatesFilter<"CarModel"> | number
   }
 
@@ -7245,6 +7134,8 @@ export namespace Prisma {
     price?: IntFilter<"Cars"> | number
     year?: IntFilter<"Cars"> | number
     mileage?: IntFilter<"Cars"> | number
+    createdAt?: DateTimeFilter<"Cars"> | Date | string
+    updatedAt?: DateTimeFilter<"Cars"> | Date | string
     make?: XOR<CarMakeScalarRelationFilter, CarMakeWhereInput>
     model?: XOR<CarModelScalarRelationFilter, CarModelWhereInput>
   }
@@ -7256,6 +7147,8 @@ export namespace Prisma {
     price?: SortOrder
     year?: SortOrder
     mileage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     make?: CarMakeOrderByWithRelationInput
     model?: CarModelOrderByWithRelationInput
   }
@@ -7270,6 +7163,8 @@ export namespace Prisma {
     price?: IntFilter<"Cars"> | number
     year?: IntFilter<"Cars"> | number
     mileage?: IntFilter<"Cars"> | number
+    createdAt?: DateTimeFilter<"Cars"> | Date | string
+    updatedAt?: DateTimeFilter<"Cars"> | Date | string
     make?: XOR<CarMakeScalarRelationFilter, CarMakeWhereInput>
     model?: XOR<CarModelScalarRelationFilter, CarModelWhereInput>
   }, "id">
@@ -7281,6 +7176,8 @@ export namespace Prisma {
     price?: SortOrder
     year?: SortOrder
     mileage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: CarsCountOrderByAggregateInput
     _avg?: CarsAvgOrderByAggregateInput
     _max?: CarsMaxOrderByAggregateInput
@@ -7298,6 +7195,8 @@ export namespace Prisma {
     price?: IntWithAggregatesFilter<"Cars"> | number
     year?: IntWithAggregatesFilter<"Cars"> | number
     mileage?: IntWithAggregatesFilter<"Cars"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Cars"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Cars"> | Date | string
   }
 
   export type UserWhereInput = {
@@ -7310,6 +7209,8 @@ export namespace Prisma {
     lastname?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7319,6 +7220,8 @@ export namespace Prisma {
     lastname?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7331,6 +7234,8 @@ export namespace Prisma {
     lastname?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7340,6 +7245,8 @@ export namespace Prisma {
     lastname?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -7357,6 +7264,8 @@ export namespace Prisma {
     lastname?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type EntityWhereInput = {
@@ -7467,86 +7376,44 @@ export namespace Prisma {
   }
 
   export type CarModelCreateInput = {
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
     make: CarMakeCreateNestedOneWithoutModelsInput
     cars?: CarsCreateNestedManyWithoutModelInput
   }
 
   export type CarModelUncheckedCreateInput = {
     id?: number
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
     makeId: number
     cars?: CarsUncheckedCreateNestedManyWithoutModelInput
   }
 
   export type CarModelUpdateInput = {
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
     make?: CarMakeUpdateOneRequiredWithoutModelsNestedInput
     cars?: CarsUpdateManyWithoutModelNestedInput
   }
 
   export type CarModelUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
     makeId?: IntFieldUpdateOperationsInput | number
     cars?: CarsUncheckedUpdateManyWithoutModelNestedInput
   }
 
   export type CarModelCreateManyInput = {
     id?: number
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
     makeId: number
   }
 
   export type CarModelUpdateManyMutationInput = {
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
   }
 
   export type CarModelUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
     makeId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -7554,6 +7421,8 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     make: CarMakeCreateNestedOneWithoutCarsInput
     model: CarModelCreateNestedOneWithoutCarsInput
   }
@@ -7565,12 +7434,16 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CarsUpdateInput = {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     make?: CarMakeUpdateOneRequiredWithoutCarsNestedInput
     model?: CarModelUpdateOneRequiredWithoutCarsNestedInput
   }
@@ -7582,6 +7455,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CarsCreateManyInput = {
@@ -7591,12 +7466,16 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CarsUpdateManyMutationInput = {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CarsUncheckedUpdateManyInput = {
@@ -7606,6 +7485,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateInput = {
@@ -7614,6 +7495,8 @@ export namespace Prisma {
     lastname: string
     password: string
     role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUncheckedCreateInput = {
@@ -7623,6 +7506,8 @@ export namespace Prisma {
     lastname: string
     password: string
     role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUpdateInput = {
@@ -7631,6 +7516,8 @@ export namespace Prisma {
     lastname?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7640,6 +7527,8 @@ export namespace Prisma {
     lastname?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateManyInput = {
@@ -7649,6 +7538,8 @@ export namespace Prisma {
     lastname: string
     password: string
     role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -7657,6 +7548,8 @@ export namespace Prisma {
     lastname?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -7666,6 +7559,8 @@ export namespace Prisma {
     lastname?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type EntityCreateInput = {
@@ -7878,154 +7773,42 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type EnumBodyStyleNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.BodyStyle | EnumBodyStyleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumBodyStyleNullableFilter<$PrismaModel> | $Enums.BodyStyle | null
-  }
-
-  export type EnumFuelTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.FuelType | EnumFuelTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumFuelTypeNullableFilter<$PrismaModel> | $Enums.FuelType | null
-  }
-
-  export type EnumTransmissionTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.TransmissionType | EnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumTransmissionTypeNullableFilter<$PrismaModel> | $Enums.TransmissionType | null
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type CarMakeScalarRelationFilter = {
     is?: CarMakeWhereInput
     isNot?: CarMakeWhereInput
   }
 
-  export type CarModelMakeIdModelNameYearCompoundUniqueInput = {
+  export type CarModelMakeIdNameCompoundUniqueInput = {
     makeId: number
-    modelName: string
-    year: number
+    name: string
   }
 
   export type CarModelCountOrderByAggregateInput = {
     id?: SortOrder
-    modelName?: SortOrder
-    year?: SortOrder
-    engineType?: SortOrder
-    bodyStyle?: SortOrder
-    fuelType?: SortOrder
-    transmission?: SortOrder
-    isActive?: SortOrder
+    name?: SortOrder
     makeId?: SortOrder
   }
 
   export type CarModelAvgOrderByAggregateInput = {
     id?: SortOrder
-    year?: SortOrder
     makeId?: SortOrder
   }
 
   export type CarModelMaxOrderByAggregateInput = {
     id?: SortOrder
-    modelName?: SortOrder
-    year?: SortOrder
-    engineType?: SortOrder
-    bodyStyle?: SortOrder
-    fuelType?: SortOrder
-    transmission?: SortOrder
-    isActive?: SortOrder
+    name?: SortOrder
     makeId?: SortOrder
   }
 
   export type CarModelMinOrderByAggregateInput = {
     id?: SortOrder
-    modelName?: SortOrder
-    year?: SortOrder
-    engineType?: SortOrder
-    bodyStyle?: SortOrder
-    fuelType?: SortOrder
-    transmission?: SortOrder
-    isActive?: SortOrder
+    name?: SortOrder
     makeId?: SortOrder
   }
 
   export type CarModelSumOrderByAggregateInput = {
     id?: SortOrder
-    year?: SortOrder
     makeId?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type EnumBodyStyleNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BodyStyle | EnumBodyStyleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumBodyStyleNullableWithAggregatesFilter<$PrismaModel> | $Enums.BodyStyle | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumBodyStyleNullableFilter<$PrismaModel>
-    _max?: NestedEnumBodyStyleNullableFilter<$PrismaModel>
-  }
-
-  export type EnumFuelTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.FuelType | EnumFuelTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumFuelTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.FuelType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumFuelTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumFuelTypeNullableFilter<$PrismaModel>
-  }
-
-  export type EnumTransmissionTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TransmissionType | EnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumTransmissionTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.TransmissionType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumTransmissionTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumTransmissionTypeNullableFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type CarModelScalarRelationFilter = {
@@ -8040,6 +7823,8 @@ export namespace Prisma {
     price?: SortOrder
     year?: SortOrder
     mileage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CarsAvgOrderByAggregateInput = {
@@ -8058,6 +7843,8 @@ export namespace Prisma {
     price?: SortOrder
     year?: SortOrder
     mileage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CarsMinOrderByAggregateInput = {
@@ -8067,6 +7854,8 @@ export namespace Prisma {
     price?: SortOrder
     year?: SortOrder
     mileage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CarsSumOrderByAggregateInput = {
@@ -8092,6 +7881,8 @@ export namespace Prisma {
     lastname?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -8105,6 +7896,8 @@ export namespace Prisma {
     lastname?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -8114,6 +7907,8 @@ export namespace Prisma {
     lastname?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -8275,30 +8070,6 @@ export namespace Prisma {
     connectOrCreate?: CarsCreateOrConnectWithoutModelInput | CarsCreateOrConnectWithoutModelInput[]
     createMany?: CarsCreateManyModelInputEnvelope
     connect?: CarsWhereUniqueInput | CarsWhereUniqueInput[]
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type NullableEnumBodyStyleFieldUpdateOperationsInput = {
-    set?: $Enums.BodyStyle | null
-  }
-
-  export type NullableEnumFuelTypeFieldUpdateOperationsInput = {
-    set?: $Enums.FuelType | null
-  }
-
-  export type NullableEnumTransmissionTypeFieldUpdateOperationsInput = {
-    set?: $Enums.TransmissionType | null
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
   }
 
   export type CarMakeUpdateOneRequiredWithoutModelsNestedInput = {
@@ -8505,97 +8276,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedEnumBodyStyleNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.BodyStyle | EnumBodyStyleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumBodyStyleNullableFilter<$PrismaModel> | $Enums.BodyStyle | null
-  }
-
-  export type NestedEnumFuelTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.FuelType | EnumFuelTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumFuelTypeNullableFilter<$PrismaModel> | $Enums.FuelType | null
-  }
-
-  export type NestedEnumTransmissionTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.TransmissionType | EnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumTransmissionTypeNullableFilter<$PrismaModel> | $Enums.TransmissionType | null
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedEnumBodyStyleNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BodyStyle | EnumBodyStyleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.BodyStyle[] | ListEnumBodyStyleFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumBodyStyleNullableWithAggregatesFilter<$PrismaModel> | $Enums.BodyStyle | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumBodyStyleNullableFilter<$PrismaModel>
-    _max?: NestedEnumBodyStyleNullableFilter<$PrismaModel>
-  }
-
-  export type NestedEnumFuelTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.FuelType | EnumFuelTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.FuelType[] | ListEnumFuelTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumFuelTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.FuelType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumFuelTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumFuelTypeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedEnumTransmissionTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TransmissionType | EnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.TransmissionType[] | ListEnumTransmissionTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumTransmissionTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.TransmissionType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumTransmissionTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumTransmissionTypeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedEnumRoleFilter<$PrismaModel = never> = {
     equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
     in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
@@ -8614,25 +8294,13 @@ export namespace Prisma {
   }
 
   export type CarModelCreateWithoutMakeInput = {
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
     cars?: CarsCreateNestedManyWithoutModelInput
   }
 
   export type CarModelUncheckedCreateWithoutMakeInput = {
     id?: number
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
     cars?: CarsUncheckedCreateNestedManyWithoutModelInput
   }
 
@@ -8650,6 +8318,8 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     model: CarModelCreateNestedOneWithoutCarsInput
   }
 
@@ -8659,6 +8329,8 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CarsCreateOrConnectWithoutMakeInput = {
@@ -8692,13 +8364,7 @@ export namespace Prisma {
     OR?: CarModelScalarWhereInput[]
     NOT?: CarModelScalarWhereInput | CarModelScalarWhereInput[]
     id?: IntFilter<"CarModel"> | number
-    modelName?: StringFilter<"CarModel"> | string
-    year?: IntNullableFilter<"CarModel"> | number | null
-    engineType?: StringNullableFilter<"CarModel"> | string | null
-    bodyStyle?: EnumBodyStyleNullableFilter<"CarModel"> | $Enums.BodyStyle | null
-    fuelType?: EnumFuelTypeNullableFilter<"CarModel"> | $Enums.FuelType | null
-    transmission?: EnumTransmissionTypeNullableFilter<"CarModel"> | $Enums.TransmissionType | null
-    isActive?: BoolFilter<"CarModel"> | boolean
+    name?: StringFilter<"CarModel"> | string
     makeId?: IntFilter<"CarModel"> | number
   }
 
@@ -8728,6 +8394,8 @@ export namespace Prisma {
     price?: IntFilter<"Cars"> | number
     year?: IntFilter<"Cars"> | number
     mileage?: IntFilter<"Cars"> | number
+    createdAt?: DateTimeFilter<"Cars"> | Date | string
+    updatedAt?: DateTimeFilter<"Cars"> | Date | string
   }
 
   export type CarMakeCreateWithoutModelsInput = {
@@ -8758,6 +8426,8 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     make: CarMakeCreateNestedOneWithoutCarsInput
   }
 
@@ -8767,6 +8437,8 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CarsCreateOrConnectWithoutModelInput = {
@@ -8850,25 +8522,13 @@ export namespace Prisma {
   }
 
   export type CarModelCreateWithoutCarsInput = {
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
     make: CarMakeCreateNestedOneWithoutModelsInput
   }
 
   export type CarModelUncheckedCreateWithoutCarsInput = {
     id?: number
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
     makeId: number
   }
 
@@ -8919,37 +8579,19 @@ export namespace Prisma {
   }
 
   export type CarModelUpdateWithoutCarsInput = {
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
     make?: CarMakeUpdateOneRequiredWithoutModelsNestedInput
   }
 
   export type CarModelUncheckedUpdateWithoutCarsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
     makeId?: IntFieldUpdateOperationsInput | number
   }
 
   export type CarModelCreateManyMakeInput = {
     id?: number
-    modelName: string
-    year?: number | null
-    engineType?: string | null
-    bodyStyle?: $Enums.BodyStyle | null
-    fuelType?: $Enums.FuelType | null
-    transmission?: $Enums.TransmissionType | null
-    isActive?: boolean
+    name: string
   }
 
   export type CarsCreateManyMakeInput = {
@@ -8958,46 +8600,32 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CarModelUpdateWithoutMakeInput = {
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
     cars?: CarsUpdateManyWithoutModelNestedInput
   }
 
   export type CarModelUncheckedUpdateWithoutMakeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
     cars?: CarsUncheckedUpdateManyWithoutModelNestedInput
   }
 
   export type CarModelUncheckedUpdateManyWithoutMakeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    modelName?: StringFieldUpdateOperationsInput | string
-    year?: NullableIntFieldUpdateOperationsInput | number | null
-    engineType?: NullableStringFieldUpdateOperationsInput | string | null
-    bodyStyle?: NullableEnumBodyStyleFieldUpdateOperationsInput | $Enums.BodyStyle | null
-    fuelType?: NullableEnumFuelTypeFieldUpdateOperationsInput | $Enums.FuelType | null
-    transmission?: NullableEnumTransmissionTypeFieldUpdateOperationsInput | $Enums.TransmissionType | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
   }
 
   export type CarsUpdateWithoutMakeInput = {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     model?: CarModelUpdateOneRequiredWithoutCarsNestedInput
   }
 
@@ -9007,6 +8635,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CarsUncheckedUpdateManyWithoutMakeInput = {
@@ -9015,6 +8645,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CarsCreateManyModelInput = {
@@ -9023,12 +8655,16 @@ export namespace Prisma {
     price: number
     year: number
     mileage: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CarsUpdateWithoutModelInput = {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     make?: CarMakeUpdateOneRequiredWithoutCarsNestedInput
   }
 
@@ -9038,6 +8674,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CarsUncheckedUpdateManyWithoutModelInput = {
@@ -9046,6 +8684,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
     mileage?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

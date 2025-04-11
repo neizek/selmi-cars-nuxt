@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 			},
 			model: {
 				select: {
-					modelName: true
+					name: true
 				}
 			},
 		},

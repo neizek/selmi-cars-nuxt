@@ -22,7 +22,7 @@
 		if (models.value) {
 			
 			allModels.value = Object.values(models.value).map(model => ({
-				label: model.modelName,
+				label: model.name,
 				value: model.id
 			}))
 		}

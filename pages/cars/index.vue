@@ -6,12 +6,9 @@
 		{label: 'Сначала дешёвые', value: {price: 'asc'}}
 	];
 
-	// const currentSort = ref(sortOptions[0].value);
 	const filters = ref({
 		orderBy: sortOptions[0].value,
-		where: {
-			makeId: 4
-		}
+		where: undefined
 	})
 
 	const {data: cars} = await useFetch('/api/cars', {

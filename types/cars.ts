@@ -5,7 +5,7 @@ export interface Make {
 
 export interface Model {
 	id: number;
-	modelName: string;
+	name: string;
 }
 
 export interface Car {

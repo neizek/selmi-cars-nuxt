@@ -14,7 +14,7 @@ import { isEmail, required } from '~/utils/forms/validators';
 	const signInError = ref('')
 
 	async function requestSignIn() {
-		await useFetch('/api/auth/signin', {
+		await useFetch('/api/users/signin', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
