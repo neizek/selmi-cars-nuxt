@@ -1,7 +1,13 @@
 import prisma from "~/utils/prisma";
 
 export default defineEventHandler(async (event) => {
-	const models = await prisma.carModel.findMany();
+	const body = await readBody(event);
+
+	const models = await prisma.carModel.findMany({
+		where: {
+			makeId: body.makeId
+		}
+	});
 
 	return models 
 })

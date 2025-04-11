@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { isEmail, required } from '~/utils/forms/validators';
+
 	const credentials = ref({
 		email: '',
 		password: '',
@@ -63,6 +65,7 @@
 				<q-input
 					:label="`${$t('email')} ${$t('or')} ${$t('phoneNumber').toLowerCase()}`"
 					v-model="credentials.email"
+					:rules="[required, isEmail]"
 				>
 					<template v-slot:prepend>
 						<q-icon name="person" />
@@ -72,6 +75,7 @@
 					:type="showPassword ? 'text' : 'password'"
 					:label="$t('password')"
 					v-model="credentials.password"
+					:rules="[required]"
 				>
 					<template v-slot:prepend>
 						<q-icon name="lock" />
@@ -103,9 +107,9 @@
 					@click="handleLogin"
 				/>
 			</q-card-section>
-			<q-separator />
+			<!-- <q-separator /> -->
 			<q-card-section class="col q-gutter-y-md">
-				<div class="q-gutter-y-sm">
+				<!-- <div class="q-gutter-y-sm">
 					<q-btn
 						class="full-width"
 						label="Apple Account"
@@ -116,7 +120,7 @@
 						label="Google Account"
 						outline
 					/>
-				</div>
+				</div> -->
 				<div class="text-center text-grey-7">{{ $t('signInPage.dontHaveAcc') }} 
 					<NuxtLink :to="$localePath('/user/signup')">
 						{{ $t('signUp') }}

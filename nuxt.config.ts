@@ -26,6 +26,10 @@ export default defineNuxtConfig({
 				},
 				QBtnGroup: {
 					unelevated: true,
+				},
+				QSelect: {
+					emitValue: true,
+					mapOptions: true
 				}
 			}
 		},

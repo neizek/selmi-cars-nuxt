@@ -2,9 +2,7 @@
 	import ProfileMenu from '~/components/ProfileMenu.vue';
 
 	const { loggedIn } = useUserSession();
-	const { locales, setLocale, getBrowserLocale} = useI18n()
-
-	console.log(getBrowserLocale())
+	const { locales, setLocale} = useI18n()
 </script>
 
 <template>
@@ -17,7 +15,7 @@
 		<q-btn
 			:label="$t('addAd')"
 			icon="add"
-			:to="$localePath('/ads/new')"
+			:to="$localePath('/cars/create')"
 		/>
 		<q-btn
 			:label="$t('signUp')"

@@ -17,6 +17,7 @@ model CarMake {
   createdAt       DateTime   @default(now())
   updatedAt       DateTime   @updatedAt
   models          CarModel[]
+  cars            Cars[]
 
   @@map("car_makes")
 }
@@ -32,10 +33,26 @@ model CarModel {
   isActive     Boolean           @default(true)
   makeId       Int
   make         CarMake           @relation(fields: [makeId], references: [id])
+  cars         Cars[]
 
   @@unique([makeId, modelName, year])
   @@index([makeId])
   @@map("car_models")
+}
+
+model Cars {
+  id      Int      @id @default(autoincrement())
+  makeId  Int
+  make    CarMake  @relation(fields: [makeId], references: [id])
+  modelId Int
+  model   CarModel @relation(fields: [modelId], references: [id])
+  price   Int
+  year    Int
+  mileage Int
+
+  @@index([makeId])
+  @@index([modelId])
+  @@map("cars")
 }
 
 model User {
@@ -53,7 +70,7 @@ model Entity {
   id                 Int    @id @default(autoincrement())
   registrationnumber String
 
-  @@map("enities")
+  @@map("entities")
 }
 
 enum Role {
